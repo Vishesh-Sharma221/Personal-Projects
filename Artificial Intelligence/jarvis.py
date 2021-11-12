@@ -1,7 +1,6 @@
 import warnings 
 import pyttsx3 as p
 import speech_recognition as sr
-import os
 import datetime
 import calendar
 import random
@@ -9,7 +8,7 @@ import wikipedia
 import webbrowser
 import subprocess
 import pyjokes
-import traceback
+import time
 
 warnings.filterwarnings("ignore")
 
@@ -260,7 +259,7 @@ while True:
                 reply = reply + pyjokes.get_joke()
 
             elif "don't listen" in text or "stop listening" in text or "do not listen" in text:
-                talk("for how many seconds do you want me to sleep")
+                speak("for how many seconds do you want me to sleep")
                 duration = int(listen())
                 time.sleep(duration)
                 repply = reply + str(duration) + " seconds completed. I am Loaded again sir !"
