@@ -9,6 +9,7 @@ import webbrowser
 import subprocess
 import pyjokes
 import time
+import os 
 
 warnings.filterwarnings("ignore")
 
@@ -149,6 +150,10 @@ def note(text):
 
     subprocess.Popen(["notepad.exe", file_name])
 
+def run(text):
+    os.system(text)
+
+
 welcome()
 while True:
     try:
@@ -158,6 +163,10 @@ while True:
         if check_for_wake_word(text):
             reply = reply + greet(text)
 
+            if "run" in text:
+                run()
+                reply = reply + f"opening {text}"
+                
             if "date" in text or "day" in text or "month" in text:
                 get_today = today_date()
                 reply = reply + " " + get_today
